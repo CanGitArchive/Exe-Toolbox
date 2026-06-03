@@ -1,0 +1,33 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# --- Virtual environments (can be ~2.5 GB) ---
+.venv/
+venv/
+env/
+
+# --- PyInstaller build artifacts ---
+build/
+dist/
+*.spec
+*.manifest
+
+# --- Built EXEs (rebuilt by the toolbox itself) ---
+*.exe
+
+# --- Pre-git version snapshot archive (kept on disk, not tracked) ---
+VersionControl/
+
+# --- Claude Code (dev-internal, machine-specific) ---
+.claude/
+
+# --- Editor / OS cruft ---
+*.code-workspace
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
