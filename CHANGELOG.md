@@ -23,14 +23,14 @@ where a 4-hour debug turned out to be a stale binary, not a packager bug.
   sha256 check.
 - **Fat-venv warning.** Heuristic scan of the build interpreter for heavy
   libraries (numpy / pandas / scipy / torch / lxml / sqlalchemy / pyarrow /
-  …) that are *not* declared in `requirements.txt`. Transitive optional
+  ...) that are *not* declared in `requirements.txt`. Transitive optional
   imports can drag those into the EXE; a real build came back at 115 MB
   from this pattern. The warning surfaces the suspects in the build log.
 - **Isolated build mode.** Optional checkbox that creates a throwaway venv
   inside the build's temp dir, installs only `requirements.txt + pyinstaller`,
   builds with that interpreter, and discards it. Lean by construction.
 - **Stale-source soft-confirm.** Flags target paths that sit inside snapshot
-  folders (`Version_Control/`, `OldMains/`, `Archive/`, …) or have a newer
+  folders (`Version_Control/`, `OldMains/`, `Archive/`, ...) or have a newer
   same-base-name sibling in the parent. Soft Yes/No dialog before the build
   runs.
 
@@ -90,5 +90,5 @@ Carried forward from earlier iterations:
   square-canvas centering. Writes via temp file + atomic replace to avoid
   a Pillow direct-save corruption issue.
 - PaddleOCR official preset: shells out to the selected Python to compute
-  `--collect-data paddlex --collect-binaries paddle --copy-metadata …`,
+  `--collect-data paddlex --collect-binaries paddle --copy-metadata ...`,
   and unchecks one-file (onedir is safer for Paddle).

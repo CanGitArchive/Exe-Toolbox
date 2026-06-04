@@ -22,7 +22,7 @@ Engineering log with the bug stories: [CHANGELOG.md](CHANGELOG.md).
 
 ## Tech
 
-PyQt6 · Pillow · PyInstaller · Python 3.12+. Windows-first.
+PyQt6, Pillow, PyInstaller, Python 3.12+. Windows-first.
 
 ## Install & run
 
