@@ -1,6 +1,6 @@
 # EXE Toolbox
 
-A PyQt6 desktop GUI for packaging Python apps into Windows `.exe` files —
+A PyQt6 desktop GUI for packaging Python apps into Windows `.exe` files,
 with the fixes for the things PyInstaller silently gets wrong.
 
 Also includes a PNG → multi-size Windows `.ico` converter for app icons.
@@ -10,7 +10,7 @@ Also includes a PNG → multi-size Windows `.ico` converter for app icons.
 ## What makes it different
 
 - **Flask / web EXEs that actually work.** Bundles `templates/`, `static/`,
-  `.env` and icons by default — no more HTTP 500 on a packaged Flask app.
+  `.env` and icons by default: no more HTTP 500 on a packaged Flask app.
 - **Tells you which source built it.** Every EXE carries a JSON stamp with
   source sha256 and build time. Stale-binary debugging dies.
 - **Lean builds on demand.** One click builds in a throwaway venv from
@@ -39,4 +39,4 @@ click **⚡ Build EXE**.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT: see [LICENSE](LICENSE).

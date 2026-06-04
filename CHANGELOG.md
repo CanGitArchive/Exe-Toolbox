@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.9 — UI overhaul
+## v1.9: UI overhaul
 
 The Python → EXE tab was crowded (five group boxes stacked vertically). Split
 it into four focused sub-tabs (**Build / Options / Data & hidden imports /
@@ -11,7 +11,7 @@ Polish: AppUserModelID input now greys out with its checkbox; all path fields
 gained clear (×) buttons; trailing info paragraph removed (sub-tab labels
 carry that load).
 
-## v1.8 — Build provenance, isolated venv, fat-venv warning, stale-source check
+## v1.8: Build provenance, isolated venv, fat-venv warning, stale-source check
 
 Four diagnosability / lean-build features triggered by a real misdiagnosis
 where a 4-hour debug turned out to be a stale binary, not a packager bug.
@@ -36,11 +36,11 @@ where a 4-hour debug turned out to be a stale binary, not a packager bug.
 
 Smaller fix: the *Detect web/Flask data* button no longer blanket-adds the
 `pystray._win32` hidden import. It scans the target source first via
-`target_imports_module` and only wires it when `pystray` is actually used —
+`target_imports_module` and only wires it when `pystray` is actually used;
 otherwise PyInstaller emits a misleading "Hidden import not found" error
 for Flask apps that have no tray code.
 
-## v1.7 — Data-file bundling for Flask / web apps
+## v1.7: Data-file bundling for Flask / web apps
 
 PyInstaller only auto-collects imported Python modules. Anything else
 (Jinja templates, static assets, `.env`, icons) had to be declared
@@ -55,7 +55,7 @@ The fix:
   to bundle root.
 - `resolve_data_entry()` emits `--add-data` with `os.pathsep` (`;` on
   Windows, `:` on POSIX). A `:` on Windows is the classic reason
-  `--add-data` silently does nothing — exactly the original bug.
+  `--add-data` silently does nothing: exactly the original bug.
 - A listed-but-missing path raises `FileNotFoundError` rather than being
   silently skipped. Silent-skip *is* the original bug; staying loud is the
   fix.
@@ -68,7 +68,7 @@ The fix:
 Also fixed a latent `NameError`: `open_folder()` was called by three
 "Open output folder" buttons but never defined.
 
-## v1.6.x — Initial git history
+## v1.6.x: Initial git history
 
 Moved from hand-versioned filename suffixes (`exe_toolbox_V1_6_6.py`) to
 git history.
@@ -79,7 +79,7 @@ Carried forward from earlier iterations:
   multi-size `.ico` first), optional `requirements.txt` install,
   windowed / onefile / clean controls, raw extra-args field for advanced
   cases.
-- AppUserModelID runtime hook + forced PyQt window/taskbar icon hook —
+- AppUserModelID runtime hook + forced PyQt window/taskbar icon hook,
   fixes blank/generic taskbar icons on unpinned PyQt EXEs.
 - Quoted `py.EXE` paths in the Python command are stripped before
   subprocess invocation. Passing `['"C:\\Windows\\py.EXE"', '-3']` to
