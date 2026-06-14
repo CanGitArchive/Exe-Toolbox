@@ -287,7 +287,7 @@ def default_python_command() -> str:
     if shutil.which("python"):
         return "python"
 
-    # Last-resort hint — neither `py` nor `python` resolved on PATH. Return a
+    # Last-resort hint, neither `py` nor `python` resolved on PATH. Return a
     # bare default so the GUI field is editable; the user fixes it manually.
     return "python"
 
@@ -610,7 +610,7 @@ def target_imports_module(target_py: Path, module: str) -> bool:
     Cheap textual check: does the target .py (or any .py beside it) contain a
     top-level `import {module}` or `from {module} ...`? Used so the
     'Detect web/Flask data' preset only wires pystray._win32 when pystray is
-    actually used — instead of leaking it into every project.
+    actually used, instead of leaking it into every project.
     """
     if not module:
         return False
@@ -1243,7 +1243,7 @@ class BuildWorker(QThread):
         self.log.emit(f"EXE name: {self.exe_name}")
         self.log.emit("")
 
-        # V1.8: provenance — log a short fingerprint of the source we are about
+        # V1.8: provenance, log a short fingerprint of the source we are about
         # to build. Cheap insurance against "stale binary" misdiagnoses.
         try:
             st = self.target_py.stat()
@@ -1255,7 +1255,7 @@ class BuildWorker(QThread):
             self.log.emit(f"(could not compute source provenance: {exc})")
             self.log.emit("")
 
-        # Resolve requirements path early — both flows use it.
+        # Resolve requirements path early, both flows use it.
         # V1.6 supports a custom requirements file. Blank falls back to
         # requirements.txt beside the selected target .py.
         requirements = (
@@ -1271,7 +1271,7 @@ class BuildWorker(QThread):
         specpath = temp_root / "spec"
 
         try:
-            # V1.8: isolated build — throwaway venv installed from
+            # V1.8: isolated build, throwaway venv installed from
             # requirements.txt only. Eliminates fat-shared-venv bloat where
             # transitive optional imports drag numpy/pandas/etc. into the EXE.
             if self.isolated_build:
@@ -1568,7 +1568,7 @@ class MainWindow(QMainWindow):
 
         root = QVBoxLayout(central)
 
-        header = QLabel(f"<b>{APP_NAME} v{APP_VERSION}</b> — PNG → ICO and Python → EXE builder")
+        header = QLabel(f"<b>{APP_NAME} v{APP_VERSION}</b>, PNG -> ICO and Python -> EXE builder")
         root.addWidget(header)
 
         self.tabs = QTabWidget()
@@ -1617,7 +1617,7 @@ class MainWindow(QMainWindow):
     # ---------- PNG tab ----------
     def _build_convert_tab(self):
         tab = QWidget()
-        self.tabs.addTab(tab, "PNG → ICO")
+        self.tabs.addTab(tab, "PNG -> ICO")
 
         layout = QVBoxLayout(tab)
 
@@ -1673,7 +1673,7 @@ class MainWindow(QMainWindow):
         button_row = QHBoxLayout()
         layout.addLayout(button_row)
 
-        convert_btn = QPushButton("Convert PNG → ICO")
+        convert_btn = QPushButton("Convert PNG -> ICO")
         convert_btn.clicked.connect(self.convert_png_clicked)
 
         open_folder_btn = QPushButton("Open output folder")
@@ -1732,12 +1732,12 @@ class MainWindow(QMainWindow):
     # ---------- Build tab ----------
     def _build_build_tab(self):
         """
-        V1.9 UI overhaul: the Python → EXE tab is itself a QTabWidget with four
+        V1.9 UI overhaul: the Python -> EXE tab is itself a QTabWidget with four
         focused sub-tabs (Build / Options / Data / Advanced). The common case
         is now: pick .py, click the prominent Build button on the Build sub-tab.
         """
         tab = QWidget()
-        self.tabs.addTab(tab, "Python → EXE")
+        self.tabs.addTab(tab, "Python -> EXE")
 
         layout = QVBoxLayout(tab)
 
@@ -1809,7 +1809,7 @@ class MainWindow(QMainWindow):
         self.exe_name_line = QLineEdit()
         self.exe_name_line.setPlaceholderText("Auto-filled from the .py filename")
 
-        # The prominent action button — sits right under the .py field.
+        # The prominent action button, sits right under the .py field.
         self.build_btn = QPushButton("⚡  Build EXE")
         self.build_btn.setMinimumHeight(52)
         self.build_btn.setStyleSheet(
@@ -1833,7 +1833,7 @@ class MainWindow(QMainWindow):
         self.clean_cb = QCheckBox("Clean cache")
         self.clean_cb.setChecked(True)
 
-        # Options sub-tab — build behavior + runtime hooks.
+        # Options sub-tab, build behavior + runtime hooks.
         self.install_pyinstaller_cb = QCheckBox("Install PyInstaller if missing")
         self.install_pyinstaller_cb.setChecked(True)
 
@@ -1851,7 +1851,7 @@ class MainWindow(QMainWindow):
         self.isolated_build_cb.setChecked(False)
         self.isolated_build_cb.setToolTip(
             "Throwaway venv installed only from your requirements.txt. Avoids dragging heavy "
-            "libraries (numpy/pandas/scipy/torch/…) from a fat shared venv into the EXE."
+            "libraries (numpy/pandas/scipy/torch/...) from a fat shared venv into the EXE."
         )
 
         self.appid_hook_cb = QCheckBox("Windows AppUserModelID runtime hook")
@@ -1935,7 +1935,7 @@ class MainWindow(QMainWindow):
         tgt_grid.addWidget(self.target_py_line, 0, 1)
         tgt_grid.addWidget(self.btn_target, 0, 2)
 
-        # Build button — spans the full width directly under target .py.
+        # Build button, spans the full width directly under target .py.
         tgt_grid.addWidget(self.build_btn, 1, 0, 1, 3)
 
         tgt_grid.addWidget(QLabel("EXE name:"), 2, 0)
@@ -1997,7 +1997,7 @@ class MainWindow(QMainWindow):
 
         info = QLabel(
             "One data file/folder per line. Relative paths are resolved beside the target .py.\n"
-            "Form:  SRC   or   SRC | DEST   (default DEST: folder→its name, file→bundle root)"
+            "Form:  SRC   or   SRC | DEST   (default DEST: folder->its name, file->bundle root)"
         )
         info.setWordWrap(True)
         v.addWidget(info)

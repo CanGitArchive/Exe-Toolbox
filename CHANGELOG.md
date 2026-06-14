@@ -2,7 +2,7 @@
 
 ## v1.9: UI overhaul
 
-The Python → EXE tab was crowded (five group boxes stacked vertically). Split
+The Python -> EXE tab was crowded (five group boxes stacked vertically). Split
 it into four focused sub-tabs (**Build / Options / Data & hidden imports /
 Advanced**) and put a prominent `⚡ Build EXE` button (52 px, bold) directly
 under the target `.py` field, so the common case is "pick `.py`, click Build."
@@ -85,7 +85,7 @@ Carried forward from earlier iterations:
   subprocess invocation. Passing `['"C:\\Windows\\py.EXE"', '-3']` to
   `subprocess.Popen` triggers `WinError 2` because Windows tries to open
   a literal file named with quote marks.
-- PNG → multi-size Windows ICO converter (16 / 24 / 32 / 48 / 64 / 128 /
+- PNG -> multi-size Windows ICO converter (16 / 24 / 32 / 48 / 64 / 128 /
   256 px) with optional light/dark border-background removal and
   square-canvas centering. Writes via temp file + atomic replace to avoid
   a Pillow direct-save corruption issue.

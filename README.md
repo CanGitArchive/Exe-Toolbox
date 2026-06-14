@@ -3,7 +3,7 @@
 A PyQt6 desktop GUI for packaging Python apps into Windows `.exe` files,
 with the fixes for the things PyInstaller silently gets wrong.
 
-Also includes a PNG → multi-size Windows `.ico` converter for app icons.
+Also includes a PNG -> multi-size Windows `.ico` converter for app icons.
 
 > *Screenshot coming.*
 
